@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package solitariocruel;
-
+import java.util.Random;
 /**
  *
  * @author Pedro
@@ -46,6 +46,16 @@ public class Game {
             _pile[i + Game.NCLUB].putCard(new Card(Card.A, suits[i]));
         
         //add them to the main stack randomly
+        Random dealer = new Random();
+        for (int i = 0; i < NCARDS; i++){
+            int cardIdx = dealer.nextInt(NCARDS - i);
+            _deck.putCard(cards[cardIdx]);
+
+            //swap
+            Card aux = cards[cardIdx];
+            cards[cardIdx] = cards[NCARDS - i - 1];
+            cards[NCARDS - i - 1] = aux;
+        }
         
         //deal
         this.deal();
