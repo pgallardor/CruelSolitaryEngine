@@ -30,20 +30,20 @@ public class Game {
     }
     
     private void initGame(){
-        final int NCARDS = 4 * 13; //the card 0X is exclusive for the foundations
+        final int NCARDS = 4 * 12; //not counting the A
         final char[] suits = {Card.CLUB, Card.DIAMOND, Card.SPADE, Card.HEART};
         Card[] cards = new Card[NCARDS];
         
         //instantiate all cards
         for (int i = 0; i < 4; i++){
-            for (int j = 1; j <= 13; j++){
+            for (int j = 2; j <= 13; j++){
                 cards[i*j] = new Card(j, suits[i]);
             }
         }
         
-        //add the 0X to the foundations
+        //add the AX to the foundations
         for (int i = 0; i < 4; i++)
-            _pile[i + Game.NCLUB].putCard(new Card(0, suits[i]));
+            _pile[i + Game.NCLUB].putCard(new Card(Card.A, suits[i]));
         
         //add them to the main stack randomly
         

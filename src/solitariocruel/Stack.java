@@ -19,6 +19,7 @@ public class Stack {
     }
     
     //gaming purposes
+    //tries a move and performs it if is possible
     public boolean move(Card c){
         Card top = _stack.getFirst();
         if (c.getNumber() == top.getNumber() + 1 || c.getSuit() != top.getSuit())
